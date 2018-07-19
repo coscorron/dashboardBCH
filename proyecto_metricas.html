@@ -23,25 +23,24 @@
   <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
     google.charts.load('current', {'packages':['table']});
+    google.charts.load('current', {'packages': ['corechart', 'line']});
     google.charts.setOnLoadCallback(drawChartPro);
-    google.charts.setOnLoadCallback(drawTablePro);
+    google.charts.setOnLoadCallback(drawBasic);
     google.charts.setOnLoadCallback(drawChartCO);
-    google.charts.setOnLoadCallback(drawTableCO)
     google.charts.setOnLoadCallback(drawChartCDN);
-    google.charts.setOnLoadCallback(drawTableCDN)
     google.charts.setOnLoadCallback(drawChartNI);
-    google.charts.setOnLoadCallback(drawTableNI)
     google.charts.setOnLoadCallback(drawChartE);
-    google.charts.setOnLoadCallback(drawTableE)
     function drawChartPro() {
       var data = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['',    7]
+        ['Tarjeta de acceso', 'porcentaje'],
+        ['Lista',    40],
+        ['Rechazada',    4],
+        ['Pendiente',    12],
+        ['En proceso', 25]
       ]);
       var options = {
-        legend: 'none',
-        pieSliceText: 'none',
-        colors: ['green']
+        title: 'Tarjetas de Accesos'//,
+        //colors: ['green','blue']
       };
       var chart = new google.visualization.PieChart(document.getElementById('piechartPro'));
       function selectHandler() {
@@ -72,36 +71,34 @@
 
       table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
     }
-    function drawChartCO() {
-      var data = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['Continuidad Operacional',    15]
-      ]);
-      var options = {
-        legend: 'none',
-        pieSliceText: 'none',
-        colors: ['yellow']
-      };
-      var chart = new google.visualization.PieChart(document.getElementById('piechartCO'));
-      chart.draw(data, options);
-    }
-    function drawTableCO() {
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Métrica');
-      data.addColumn('number', 'Status');
-      data.addRows([
-        ['SLA',   {v:0, f: '<div style="background-color: yellow;">&nbsp;</div>'}],
-        ['Volumen',   {v:0, f: '<div style="background-color: yellow;">&nbsp;</div>'}],
-        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
-        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
-        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
-      ]);
-      data.setCell(0,1,)
+    function drawBasic() {
 
-      var table = new google.visualization.Table(document.getElementById('tableCO'));
+          var data = new google.visualization.DataTable();
+          data.addColumn('number', 'X');
+          data.addColumn('number', 'Ejecutados');
 
-      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
-    }
+          data.addRows([
+            [0, 12],   [1, 12],  [2, 10],  [3, 15],  [4, 18],  [5, 9],
+            [6, 0],  [7, 0],  [8, 12],  [9, 15],  [10, 11], [11, 9],
+            [12, 13], [13, 0], [14, 0], [15, 12], [16, 12], [17, 12],
+            [18, 12], [19, 12], [20, 0], [21, 0], [22, 13], [23, 8],
+            [24, 15], [25, 9], [26, 10], [27, 0], [28, 0], [29, 11],
+            [30, 12], [31, 10]
+          ]);
+
+          var options = {
+            title: 'Ejecuciones por día',
+            legend: 'none',
+            hAxis: {
+              title: 'Dia'
+            },
+            vAxis: {
+              title: 'Ejecuciones'
+            }
+          };
+          var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
     function drawChartCDN() {
       var data = google.visualization.arrayToDataTable([
         ['Task', 'Hours per Day'],
@@ -210,7 +207,9 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="proyectos.html">Home</a></li>
+          <li><a href="index.html">Home</a></li> ->
+          <li><a href="proyectos.html">proyectos</a></li> ->
+          <li><a href="#">Metricas</a></li>
         </ul>
       </div>
     </div>
@@ -219,11 +218,16 @@
   </form>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-2">
-        <div  align="center">
-          <h2>Cartera</h2>
+      <div class="col-sm-12">
+        <div >
+          <h2>Riesgos</h2>
           <div class="clearfix"></div>
         </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
         <div class="x_content">
           <div id="piechartPro" style="width: 100%; height: 100%;"></div>
         </div>
@@ -231,11 +235,11 @@
       </div>
       <div class="col-sm-2">
         <div  align="center">
-          <h2>Continuidad</h2>
+          <h2>CDN</h2>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-          <div id="piechartCO" style="width: 100%; height: 100%;"></div>
+          <div id="piechartCDN" style="width: 100%; height: 100%;"></div>
         </div>
         <br>
       </div>
@@ -270,34 +274,55 @@
         <br>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div >
+          <h2>Metricas</h2>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-2">
         <div class="x_content">
-          <div id="tablePro" style="width: 100%; height: 100%;"></div>
+          <div id="chart_div" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>      
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="piechartPro" style="width: 100%; height: 100%;"></div>
         </div>
         <br>
       </div>
       <div class="col-sm-2">
+        <div  align="center">
+          <h2>CDN</h2>
+          <div class="clearfix"></div>
+        </div>
         <div class="x_content">
-          <div id="tableCO" style="width: 100%; height: 100%;"></div>
+          <div id="piechartCDN" style="width: 100%; height: 100%;"></div>
         </div>
         <br>
       </div>
       <div class="col-sm-2">
+        <div  align="center">
+          <h2>Internet</h2>
+          <div class="clearfix"></div>
+        </div>
         <div class="x_content">
-          <div id="tableCDN" style="width: 100%; height: 100%;"></div>
+          <div id="piechartNI" style="width: 100%; height: 100%;"></div>
         </div>
         <br>
       </div>
       <div class="col-sm-2">
-        <div class="x_content">
-          <div id="tableNI" style="width: 100%; height: 100%;"></div>
+        <div  align="center">
+          <h2>Procesos</h2>
+          <div class="clearfix"></div>
         </div>
-        <br>
-      </div>
-      <div class="col-sm-2">
         <div class="x_content">
-          <div id="tableE" style="width: 100%; height: 100%;"></div>
+          <div id="piechartE" style="width: 100%; height: 100%;"></div>
         </div>
         <br>
       </div>

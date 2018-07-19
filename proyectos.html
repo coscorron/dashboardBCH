@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Connectis - Dashboard BCH</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+
+  <!-- Demo Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- keen-analysis@1.2.2 -->
+  <script src="https://d26b395fwzu5fz.cloudfront.net/keen-analysis-1.2.2.js" type="text/javascript"></script>
+
+  <!-- keen-dataviz@1.1.3 -->
+  <link href="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.css" rel="stylesheet" />
+  <script src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.js" type="text/javascript"></script>
+
+  <!-- Dashboard -->
+  <script type="text/javascript" src="starter-kit.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', {'packages':['table']});
+    google.charts.setOnLoadCallback(drawChartPro);
+    google.charts.setOnLoadCallback(drawTablePro);
+    google.charts.setOnLoadCallback(drawChartCO);
+    google.charts.setOnLoadCallback(drawTableCO)
+    google.charts.setOnLoadCallback(drawChartCDN);
+    google.charts.setOnLoadCallback(drawTableCDN)
+    google.charts.setOnLoadCallback(drawChartNI);
+    google.charts.setOnLoadCallback(drawTableNI)
+    google.charts.setOnLoadCallback(drawChartE);
+    google.charts.setOnLoadCallback(drawTableE);
+    google.charts.setOnLoadCallback(drawChart06);
+    google.charts.setOnLoadCallback(drawTable06);
+    google.charts.setOnLoadCallback(drawChart07);
+    google.charts.setOnLoadCallback(drawTable07);
+    google.charts.setOnLoadCallback(drawChart08);
+    google.charts.setOnLoadCallback(drawTable08);
+    google.charts.setOnLoadCallback(drawChart09);
+    google.charts.setOnLoadCallback(drawTable09);
+    google.charts.setOnLoadCallback(drawChart10);
+    google.charts.setOnLoadCallback(drawTable10);
+    google.charts.setOnLoadCallback(drawChart11);
+    google.charts.setOnLoadCallback(drawTable11);
+    google.charts.setOnLoadCallback(drawChart12);
+    google.charts.setOnLoadCallback(drawTable12);
+    function drawChartPro() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['',    7]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechartPro'));
+      function selectHandler() {
+           var selectedItem = chart.getSelection()[0];
+           if (selectedItem) {
+              var topping = data.getValue(selectedItem.row, 0);
+              form1.action = 'proyecto_metricas.html';
+              form1.submit();
+           }
+         }
+      google.visualization.events.addListener(chart, 'select', selectHandler);
+      chart.draw(data, options);
+    }
+    function drawTablePro() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('tablePro'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChartCO() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Continuidad Operacional',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['yellow']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechartCO'));
+      chart.draw(data, options);
+    }
+    function drawTableCO() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: yellow;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: yellow;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('tableCO'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChartCDN() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['CDN',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechartCDN'));
+      chart.draw(data, options);
+    }
+    function drawTableCDN() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('tableCDN'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChartNI() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['NI',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['red']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechartNI'));
+      chart.draw(data, options);
+    }
+    function drawTableNI() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: yellow;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: red;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('tableNI'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChartE() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['E',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechartE'));
+      chart.draw(data, options);
+    }
+    function drawTableE() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('tableE'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChart06() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['E',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart06'));
+      chart.draw(data, options);
+    }
+    function drawTable06() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('table06'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChart07() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['E',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart07'));
+      chart.draw(data, options);
+    }
+    function drawTable07() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('table07'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChart08() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['E',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart08'));
+      chart.draw(data, options);
+    }
+    function drawTable08() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('table08'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChart09() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['E',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart09'));
+      chart.draw(data, options);
+    }
+    function drawTable09() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('table09'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChart10() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['E',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart10'));
+      chart.draw(data, options);
+    }
+    function drawTable10() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('table10'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChart11() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['E',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart11'));
+      chart.draw(data, options);
+    }
+    function drawTable11() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('table11'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+    function drawChart12() {
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['E',    15]
+      ]);
+      var options = {
+        legend: 'none',
+        pieSliceText: 'none',
+        colors: ['green']
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart12'));
+      chart.draw(data, options);
+    }
+    function drawTable12() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Métrica');
+      data.addColumn('number', 'Status');
+      data.addRows([
+        ['SLA',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Volumen',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Tasa Defecto',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Automatizacion',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}],
+        ['Rework',   {v:0, f: '<div style="background-color: green;">&nbsp;</div>'}]
+      ]);
+      data.setCell(0,1,)
+
+      var table = new google.visualization.Table(document.getElementById('table12'));
+
+      table.draw(data, {showRowNumber: false, width: '100%', height: '100%', allowHtml: true});
+    }
+
+  </script>
+
+</head>
+<body class="keen-dashboard" style="padding-top: 80px;">
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img src="images/CONNECTIS2.jpg">
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="proyectos.html">Home</a></li> ->
+          <li><a href="#">proyectos</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <form name="form1" id="form1" method="post" action="">
+  </form>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto1</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechartPro" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto2</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechartCO" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto3</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechartCDN" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto4</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechartNI" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto5</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechartE" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto6</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechart06" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="tablePro" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="tableCO" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="tableCDN" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="tableNI" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="tableE" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="table06" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto07</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechart07" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto08</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechart08" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto09</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechart09" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto10</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechart10" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto11</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechart11" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div  align="center">
+          <h2>Proyecto12</h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div id="piechart12" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="table07" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="table08" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="table09" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="table10" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="table11" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+      <div class="col-sm-2">
+        <div class="x_content">
+          <div id="table12" style="width: 100%; height: 100%;"></div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Analytics -->
+  <script type="text/javascript" src="../../assets/js/keen-analytics.js"></script>
+</body>
+</html>
